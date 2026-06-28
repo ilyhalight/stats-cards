@@ -51,6 +51,10 @@ const themes = [
     value: "monokai-classic",
     label: "Monokai Classic",
   },
+  {
+    value: "black-pink", 
+    label: "Black Pink",
+  },
 ];
 
 const layouts = [
@@ -637,3 +641,4 @@ function init() {
 }
 
 init();
+

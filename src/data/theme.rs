@@ -57,6 +57,8 @@ pub enum Theme {
     AyuWhite,
     #[serde(rename = "monokai-classic")]
     MonokaiClassic,
+    #[serde(rename = "black-pink")]
+    BlackPink,
 }
 
 impl Theme {
@@ -204,6 +206,15 @@ impl Theme {
                 // focus
                 mono_icon: "#75715e".to_string(),
             },
+            // by maestroTW
+            // based on bear theme from https://github.com/anuraghazra/github-readme-stats/tree/master/themes
+            Theme::BlackPink => ThemeData {
+                background: "#1f2023".to_string(),       
+                surface_background: "#343434".to_string(), 
+                text: "#beb698".to_string(),             
+                header: "#c8397d".to_string(),            
+                mono_icon: "#847c64".to_string(),         
+            },
         }
     }
 
@@ -329,6 +340,17 @@ impl Theme {
                 // Class name
                 ActivityColor::VeryHigh => "#A6E22E".to_string(),
             },
+            // by maestroTW
+            // based on bear theme from https://github.com/anuraghazra/github-readme-stats/tree/master/themes
+            Theme::BlackPink => match activity_color {
+                ActivityColor::Inactive => "#343434".to_string(),    
+                ActivityColor::Small => "#604a4c".to_string(),       
+                ActivityColor::Medium => "#847c64".to_string(),       
+                ActivityColor::High => "#c8397d".to_string(),    
+                ActivityColor::VeryHigh => "#42283b".to_string(),
+            },
         }
     }
 }
+
+
