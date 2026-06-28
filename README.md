@@ -10,13 +10,13 @@ Current list of available cards:
 
   Endpoint: `/v1/top-langs/wakatime?username=Toil`
 
-   <img src="https://stats-cards.toil.cc/v1/top-langs/wakatime?username=Toil" alt="demo" />
+   <img src="https://stats-cards.nirel.cc/v1/top-langs/wakatime?username=Toil" alt="demo" />
 
 - Github languages (compact with progress)
 
   Endpoint: `/v1/top-langs/github?username=ilyhalight`
 
-   <img src="https://stats-cards.toil.cc/v1/top-langs/github?username=ilyhalight" alt="demo" />
+   <img src="https://stats-cards.nirel.cc/v1/top-langs/github?username=ilyhalight" alt="demo" />
 
   \* Required `GITHUB_TOKEN` in `.env`
 
@@ -24,7 +24,7 @@ Current list of available cards:
 
   Endpoint: `/v1/activity/github?username=ilyhalight&period=3_months&with_title=true`
 
-   <img src="https://stats-cards.toil.cc/v1/activity/github?username=ilyhalight&period=3_months&with_title=true" alt="demo" />
+   <img src="https://stats-cards.nirel.cc/v1/activity/github?username=ilyhalight&period=3_months&with_title=true" alt="demo" />
 
   Support disabling title with param `with_title`:
 
@@ -43,7 +43,7 @@ Current list of available cards:
 
   Endpoint: `/v1/pin/huggingface?username=openai&repo=whisper-large-v3-turbo&show_owner=true&type=model`
 
-   <img src="https://stats-cards.toil.cc/v1/pin/huggingface?username=openai&repo=whisper-large-v3-turbo&show_owner=true&type=model" alt="demo with show_owner" />
+   <img src="https://stats-cards.nirel.cc/v1/pin/huggingface?username=openai&repo=whisper-large-v3-turbo&show_owner=true&type=model" alt="demo with show_owner" />
 
   Support select repo type with param `type`:
 
@@ -62,7 +62,7 @@ Current list of available cards:
 
   Endpoint: `/v1/pin/github?username=ilyhalight&repo=stats-cards&show_owner=true`
 
-   <img src="https://stats-cards.toil.cc/v1/pin/github?username=ilyhalight&repo=stats-cards&show_owner=true" alt="demo with show_owner" />
+   <img src="https://stats-cards.nirel.cc/v1/pin/github?username=ilyhalight&repo=stats-cards&show_owner=true" alt="demo with show_owner" />
 
   Support show owner name with param `show_owner`:
 
@@ -75,7 +75,7 @@ Current list of available cards:
 
   Endpoint: `/v1/pin/gist?id=6f47e86d2510bce28f8e7f42ae84c716&show_owner=true`
 
-   <img src="https://stats-cards.toil.cc/v1/pin/gist?id=6f47e86d2510bce28f8e7f42ae84c716&show_owner=true" alt="demo with show_owner" />
+   <img src="https://stats-cards.nirel.cc/v1/pin/gist?id=6f47e86d2510bce28f8e7f42ae84c716&show_owner=true" alt="demo with show_owner" />
 
   Support show owner name with param `show_owner`:
 
@@ -114,7 +114,7 @@ docker build -t "stats-cards" .
 3. Run container
 
 ```bash
-docker run -p 7674:7674 stats-cards
+docker compose up -d
 ```
 
 ### Manually
