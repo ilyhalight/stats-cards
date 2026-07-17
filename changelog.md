@@ -3,6 +3,7 @@
 - Added new themes support:
   - `uchu` theme
   - `black-pink` theme (implemented by @maestroTW in #3)
+- Micro refactor of `index.js` file
 
 ## 0.2.4
 

@@ -31,12 +31,6 @@ pub struct LanguageStat {
     percent: f32,
 }
 
-#[derive(Debug, Deserialize, Serialize)]
-pub struct MinimalLanguageStat {
-    name: String,
-    count: f32,
-}
-
 #[derive(Template)]
 #[template(path = "compact/languages.html")]
 pub struct CompactLanguagesTemplate {
