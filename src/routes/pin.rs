@@ -57,12 +57,10 @@ pub struct GistParams {
 }
 
 #[derive(Debug, Deserialize, Serialize)]
+#[serde(rename_all = "lowercase")]
 pub enum HFPinIcon {
-    #[serde(rename = "model")]
     Model,
-    #[serde(rename = "dataset")]
     Dataset,
-    #[serde(rename = "space")]
     Space,
 }
 

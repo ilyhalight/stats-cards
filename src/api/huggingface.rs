@@ -29,8 +29,6 @@ pub enum PipelineTag {
     FeatureExtraction,
     #[serde(rename = "text-generation")]
     TextGeneration,
-    #[serde(rename = "text2text-generation")]
-    Text2TextGeneration,
     #[serde(rename = "fill-mask")]
     FillMask,
     #[serde(rename = "sentence-similarity")]
@@ -93,6 +91,10 @@ pub enum PipelineTag {
     TexttoVideo,
     #[serde(rename = "image-text-to-text")]
     ImageTexttoText,
+    #[serde(rename = "image-text-to-image")]
+    ImageTexttoImage,
+    #[serde(rename = "image-text-to-video")]
+    ImageTexttoVideo,
     #[serde(rename = "visual-question-answering")]
     VisualQuestionAnswering,
     #[serde(rename = "document-question-answering")]
@@ -119,6 +121,8 @@ pub enum PipelineTag {
     VisualDocumentRetrieval,
     #[serde(rename = "any-to-any")]
     AnytoAny,
+    #[serde(rename = "video-to-video")]
+    VideotoVideo,
     #[serde(rename = "other")]
     Other,
 }
@@ -135,7 +139,6 @@ impl PipelineTag {
             PipelineTag::Summarization => "Summarization".to_string(),
             PipelineTag::FeatureExtraction => "Feature Extraction".to_string(),
             PipelineTag::TextGeneration => "Text Generation".to_string(),
-            PipelineTag::Text2TextGeneration => "Text2Text Generation".to_string(),
             PipelineTag::FillMask => "Fill-Mask".to_string(),
             PipelineTag::SentenceSimilarity => "Sentence Similarity".to_string(),
             PipelineTag::TexttoSpeech => "Text-to-Speech".to_string(),
@@ -169,6 +172,8 @@ impl PipelineTag {
             PipelineTag::TimeSeriesForecasting => "Time Series Forecasting".to_string(),
             PipelineTag::TexttoVideo => "Text-to-Video".to_string(),
             PipelineTag::ImageTexttoText => "Image-Text-to-Text".to_string(),
+            PipelineTag::ImageTexttoImage => "Image-Text-to-Image".to_string(),
+            PipelineTag::ImageTexttoVideo => "Image-Text-to-Video".to_string(),
             PipelineTag::VisualQuestionAnswering => "Visual Question Answering".to_string(),
             PipelineTag::DocumentQuestionAnswering => "Document Question Answering".to_string(),
             PipelineTag::ZeroShotImageClassification => {
@@ -184,6 +189,7 @@ impl PipelineTag {
             PipelineTag::KeypointDetection => "Keypoint Detection".to_string(),
             PipelineTag::VisualDocumentRetrieval => "Visual Document Retrieval".to_string(),
             PipelineTag::AnytoAny => "Any-to-Any".to_string(),
+            PipelineTag::VideotoVideo => "Video-to-Video".to_string(),
             PipelineTag::Other => "Other".to_string(),
         }
     }

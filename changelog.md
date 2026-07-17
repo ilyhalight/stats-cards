@@ -3,6 +3,8 @@
 - Added new themes support:
   - `uchu` theme
   - `black-pink` theme (implemented by @maestroTW in #3)
+- Removed alias with single `p` for `catppuccin-macchiato` theme
+- Actualized huggingface pipeline tags (also reworked `data/hf_gen_pipeline_tag.js` script to generate this code) that fixes `Unknown API error` for some models with new pipeline tags
 - Micro refactor of `index.js` file
 
 ## 0.2.4
