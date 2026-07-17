@@ -59,6 +59,8 @@ pub enum Theme {
     MonokaiClassic,
     #[serde(rename = "black-pink")]
     BlackPink,
+    #[serde(rename = "uchu")]
+    Uchu,
 }
 
 impl Theme {
@@ -209,12 +211,21 @@ impl Theme {
             // by maestroTW
             // based on bear theme from https://github.com/anuraghazra/github-readme-stats/tree/master/themes
             Theme::BlackPink => ThemeData {
-                background: "#1f2023".to_string(),       
-                surface_background: "#343434".to_string(), 
-                text: "#beb698".to_string(),             
-                header: "#c8397d".to_string(),            
-                mono_icon: "#847c64".to_string(),         
+                background: "#1f2023".to_string(),
+                surface_background: "#343434".to_string(),
+                text: "#beb698".to_string(),
+                header: "#c8397d".to_string(),
+                mono_icon: "#847c64".to_string(),
             },
+            // #region Uchu (https://uchu.style/)
+            Theme::Uchu => ThemeData {
+                background: "#f0f0f2".to_string(),
+                surface_background: "#e3e5e5".to_string(),
+                text: "#383b3d".to_string(),
+                header: "#c8397d".to_string(),
+                mono_icon: "#9b9b9d".to_string(),
+            },
+            // #endregion Uchu
         }
     }
 
@@ -343,14 +354,19 @@ impl Theme {
             // by maestroTW
             // based on bear theme from https://github.com/anuraghazra/github-readme-stats/tree/master/themes
             Theme::BlackPink => match activity_color {
-                ActivityColor::Inactive => "#343434".to_string(),    
-                ActivityColor::Small => "#604a4c".to_string(),       
-                ActivityColor::Medium => "#847c64".to_string(),       
-                ActivityColor::High => "#c8397d".to_string(),    
+                ActivityColor::Inactive => "#343434".to_string(),
+                ActivityColor::Small => "#604a4c".to_string(),
+                ActivityColor::Medium => "#847c64".to_string(),
+                ActivityColor::High => "#c8397d".to_string(),
                 ActivityColor::VeryHigh => "#42283b".to_string(),
+            },
+            Theme::Uchu => match activity_color {
+                ActivityColor::Inactive => "#e3e5e5".to_string(),
+                ActivityColor::Small => "#afecb6".to_string(),
+                ActivityColor::Medium => "#8ae293".to_string(),
+                ActivityColor::High => "#64d970".to_string(),
+                ActivityColor::VeryHigh => "#3fcf4e".to_string(),
             },
         }
     }
 }
-
-

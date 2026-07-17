@@ -52,8 +52,12 @@ const themes = [
     label: "Monokai Classic",
   },
   {
-    value: "black-pink", 
+    value: "black-pink",
     label: "Black Pink",
+  },
+  {
+    value: "uchu",
+    label: "Uchū",
   },
 ];
 
@@ -202,12 +206,12 @@ function createDropdown({
     searchEl.addEventListener("input", (e) => {
       const query = e.target.value.toLowerCase();
       const passedOptions = options.filter((option) =>
-        option.label.toLowerCase().includes(query)
+        option.label.toLowerCase().includes(query),
       );
       searchInfoEl.hidden = !!passedOptions.length;
       optionEls.map((optionEl) => {
         optionEl.hidden = !passedOptions.find(
-          (option) => option.value === optionEl.dataset.value
+          (option) => option.value === optionEl.dataset.value,
         );
       });
     });
@@ -436,7 +440,7 @@ function initCategory() {
         option.id,
         Array.isArray(option.value)
           ? option.value.find((val) => !val.disabled)
-          : option.value
+          : option.value,
       );
     }
 
@@ -513,7 +517,7 @@ function updatePreview() {
       const data = userData.get(option.id);
       result[option.query] = typeof data === "object" ? data.value : data;
       return result;
-    }, {})
+    }, {}),
   ).toString();
   generatedImg.src = `/v1/${selectedCategory.path}?${params}`;
 }
@@ -628,17 +632,16 @@ function init() {
 
   copyMarkdownEl.addEventListener(
     "click",
-    async () => await copyToClipboard("markdown")
+    async () => await copyToClipboard("markdown"),
   );
   copyPlainEl.addEventListener(
     "click",
-    async () => await copyToClipboard("plain")
+    async () => await copyToClipboard("plain"),
   );
   copyEmbedEl.addEventListener(
     "click",
-    async () => await copyToClipboard("code")
+    async () => await copyToClipboard("code"),
   );
 }
 
 init();
-

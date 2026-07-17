@@ -1,3 +1,9 @@
+# 0.2.5
+
+- Added new themes support:
+  - `uchu` theme
+  - `black-pink` theme (implemented by @maestroTW in #3)
+
 ## 0.2.4
 
 - Added support Github Extra Pin Gist (Cyrillic supported!)
@@ -22,7 +28,6 @@
 ## 0.2.0
 
 - Added support select Theme with param `theme`:
-
   - `catppuccin-macchiato` (default)
   - `catppuccin-mocha` (**NEW**)
   - `catppuccin-latte` (**NEW**)

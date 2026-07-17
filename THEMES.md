@@ -13,6 +13,7 @@
 [ayu-white]: https://stats-cards.toil.cc/v1/top-langs/github?username=ilyhalight&theme=ayu-white
 [monokai-classic]: https://stats-cards.toil.cc/v1/top-langs/github?username=ilyhalight&theme=monokai-classic
 [black-pink]: https://stats-cards.toil.cc/v1/top-langs/github?username=ilyhalight&theme=black-pink
+[uchu]: https://stats-cards.toil.cc/v1/top-langs/github?username=ilyhalight&theme=uchu
 
 |                                                                                |                                                                  |                                                          |
 | :----------------------------------------------------------------------------: | :--------------------------------------------------------------: | :------------------------------------------------------: |
@@ -20,5 +21,4 @@
 |          `catppuccin-frappe` ![catppuccin-frappe][catppuccin-frappe]           |                       `dark` ![dark][dark]                       |                 `white` ![white][white]                  |
 |            `onedark-pro-flat` ![onedark-pro-flat][onedark-pro-flat]            |                  `dracula` ![dracula][dracula]                   |     `kanagawa-wave` ![kanagawa-wave][kanagawa-wave]      |
 |                     `ayu-mirage` ![ayu-mirage][ayu-mirage]                     |               `ayu-white` ![ayu-white][ayu-white]                |  `monokai-classic` ![monokai-classic][monokai-classic]   |
-|                                                                                |               `black-pink` ![black-pink][black-pink]             |                                                          |
-
+|                                                                                |              `black-pink` ![black-pink][black-pink]              |                   `uchu` ![uchu][uchu]                   |
