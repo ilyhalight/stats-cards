@@ -33,7 +33,7 @@ pub struct ThemeData {
 
 #[derive(Debug, Deserialize, Serialize, Clone)]
 pub enum Theme {
-    #[serde(rename = "catppuccin-macchiato", alias = "catpuccin-macchiato")]
+    #[serde(rename = "catppuccin-macchiato")]
     CatppuccinMacchiato,
     #[serde(rename = "catppuccin-mocha")]
     CatppuccinMocha,
