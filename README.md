@@ -27,12 +27,10 @@ Current list of available cards:
    <img src="https://stats-cards.nirel.cc/v1/activity/github?username=ilyhalight&period=3_months&with_title=true" alt="demo" />
 
   Support disabling title with param `with_title`:
-
   - `true` (default)
   - `false`
 
   Support select period with param `period`:
-
   - `3_months` (default)
   - `6_months`
   - `year`
@@ -46,13 +44,11 @@ Current list of available cards:
    <img src="https://stats-cards.nirel.cc/v1/pin/huggingface?username=openai&repo=whisper-large-v3-turbo&show_owner=true&type=model" alt="demo with show_owner" />
 
   Support select repo type with param `type`:
-
   - `model`
   - `dataset`
   - `space`
 
   Support show owner name with param `show_owner`:
-
   - `true`
   - `false` (default)
 
@@ -65,7 +61,6 @@ Current list of available cards:
    <img src="https://stats-cards.nirel.cc/v1/pin/github?username=ilyhalight&repo=stats-cards&show_owner=true" alt="demo with show_owner" />
 
   Support show owner name with param `show_owner`:
-
   - `true`
   - `false` (default)
 
@@ -78,7 +73,6 @@ Current list of available cards:
    <img src="https://stats-cards.nirel.cc/v1/pin/gist?id=6f47e86d2510bce28f8e7f42ae84c716&show_owner=true" alt="demo with show_owner" />
 
   Support show owner name with param `show_owner`:
-
   - `true`
   - `false` (default)
 
@@ -88,7 +82,7 @@ List of planned cards:
 
 - [WIP] [Github Streak](https://github.com/DenverCoder1/github-readme-streak-stats)
 - [WIP] [Wakatime Streak](https://github.com/DenverCoder1/github-readme-streak-stats)
-- [WIP] [Github stats](https://github.com/anuraghazra/github-readme-stats)
+- [WIP] [Github stats](https://github.com/stats-organization/github-stats-extended)
 
 \* links contain design examples
 

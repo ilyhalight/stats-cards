@@ -1,10 +1,10 @@
 use crate::api::github::GraphQLResponse;
-use crate::api::{github, wakatime, wakatime::StatsResponse as WakaTimeStatsResponse};
+use crate::api::{github, wakatime};
 use crate::data::config::CONFIG;
 use crate::data::language::get_lang_color;
 use crate::data::theme::{Theme, ThemeData};
 use crate::prepared_templates::{PreparedTemplate, gh_handle_error_template};
-use crate::templates;
+use crate::{templates, utils};
 
 use askama::Template;
 use axum::{
@@ -55,40 +55,24 @@ async fn get_top_langs_by_waka_intl(
         return Err(PreparedTemplate::Unknown);
     }
 
-    let stats_data = match stats.unwrap() {
-        WakaTimeStatsResponse::Failed(err) => {
-            let err_template = match err.error.as_str() {
-                "Not found." => PreparedTemplate::FailedFindUser,
-                "Time range not matching user's public stats range." => {
-                    PreparedTemplate::FailedFindLanguages
-                }
-                _ => PreparedTemplate::Unknown,
-            };
-            return Err(err_template);
-        }
-        WakaTimeStatsResponse::NoData(_) => {
-            return Err(PreparedTemplate::FailedFindLanguages);
-        }
-        WakaTimeStatsResponse::Valid(res) => res,
-    };
-
+    let stats_data = utils::wakatime::unwrap_stats_response(stats.unwrap())?;
     let languages = stats_data.data.languages;
     let first_languages = match languages.first_chunk::<6>() {
         Some(langs) => langs,
         None => {
-            return Err(PreparedTemplate::FailedFindLanguages);
+            return Err(PreparedTemplate::FailedFindStats);
         }
     };
 
     let max_percent = first_languages
         .iter()
-        .fold(0.0, |acc, val| acc + val.percent);
+        .fold(0.0, |acc, val| acc + val.base.percent);
     let top_langs: Vec<LanguageStat> = first_languages
         .iter()
         .map(|lang| LanguageStat {
-            name: lang.name.clone(),
-            color: get_lang_color(&lang.name),
-            percent: 100.0 / (max_percent / lang.percent),
+            name: lang.base.name.clone(),
+            color: get_lang_color(&lang.base.name),
+            percent: 100.0 / (max_percent / lang.base.percent),
         })
         .collect();
 
@@ -122,7 +106,7 @@ async fn get_top_langs_by_github_intl(
     };
 
     if languages_raw_data.len() == 0 {
-        return Err(PreparedTemplate::FailedFindLanguages);
+        return Err(PreparedTemplate::FailedFindStats);
     }
 
     let mut langs_data: HashMap<String, i64> = HashMap::new();

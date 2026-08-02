@@ -11,7 +11,7 @@ use axum::response::{IntoResponse, Response};
 pub enum PreparedTemplate {
     FailedFindUser,
     FailedFindRepo,
-    FailedFindLanguages,
+    FailedFindStats,
     BadCredentials,
     APIRateLimit,
     Unknown,
@@ -28,8 +28,8 @@ impl PreparedTemplate {
                 first_line: "Failed to find a repo.",
                 second_line: "Check if it’s spelled correctly",
             },
-            PreparedTemplate::FailedFindLanguages => ErrorTemplate {
-                first_line: "Failed to find a user languages.",
+            PreparedTemplate::FailedFindStats => ErrorTemplate {
+                first_line: "Failed to find a user stats.",
                 second_line: "Maybe he's inactive",
             },
             PreparedTemplate::BadCredentials => ErrorTemplate {

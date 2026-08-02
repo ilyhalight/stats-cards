@@ -1,0 +1,41 @@
+<style>
+  .circle-text {
+    font:
+      800 22px "Segoe UI",
+      system-ui,
+      sans-serif;
+  }
+  .circle-part {
+    transform-box: fill-box;
+    transform-origin: center;
+    transform: rotate(-90deg);
+  }
+</style>
+<g xmlns="http://www.w3.org/2000/svg" transform="{{ progress_transform }}">
+  <circle
+    xmlns="http://www.w3.org/2000/svg"
+    stroke-width="6px"
+    stroke="{{ theme_data.mono_icon }}"
+    r="40"
+  />
+  <circle
+    xmlns="http://www.w3.org/2000/svg"
+    class="circle-part"
+    stroke-linecap="round"
+    stroke-width="6px"
+    stroke-dasharray="{{ dasharray }}"
+    r="40"
+    stroke="{{ theme_data.header }}"
+  />
+  <g>
+    <text
+      xmlns="http://www.w3.org/2000/svg"
+      dominant-baseline="central"
+      class="circle-text"
+      text-anchor="middle"
+      fill="{{ theme_data.header }}"
+    >
+      {{ progress_text }}
+    </text>
+  </g>
+</g>

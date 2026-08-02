@@ -38,6 +38,10 @@ async fn main() {
         .route("/v1/pin/huggingface", get(routes::pin::get_huggingface_pin))
         .route("/v1/pin/github", get(routes::pin::get_github_repo_pin))
         .route("/v1/pin/gist", get(routes::pin::get_github_gist_pin))
+        .route(
+            "/v1/ai-stats/wakatime",
+            get(routes::ai_stats::get_waka_ai_stats),
+        )
         .route("/v1/health", get(routes::health::get_health))
         .with_state(cache);
 

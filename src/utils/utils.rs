@@ -22,3 +22,15 @@ pub fn fmt_num(num: i32) -> String {
         .with_separator("")
         .format(num as f64)
 }
+
+pub fn fmt_dur(seconds: u64) -> String {
+    let h = seconds / 3600;
+    let m = (seconds % 3600) / 60;
+    let s = seconds % 60;
+
+    match (h, m, s) {
+        (h, m, _) if h > 0 => format!("{h}h {m}m"),
+        (_, m, _) if m > 0 => format!("{m}m {s}s"),
+        _ => format!("{s}s"),
+    }
+}

@@ -178,7 +178,9 @@ a:hover {
   background: var(--background-color);
   color: var(--text-color);
   border: 1px solid var(--border-color);
-  transition: background 0.25s ease, color 0.25s ease;
+  transition:
+    background 0.25s ease,
+    color 0.25s ease;
 }
 
 .button.button_outline:hover {
@@ -358,6 +360,7 @@ a:hover {
 @media screen and (min-width: 660px) {
   .generator-options {
     max-width: 752px;
+    width: 90vw;
   }
 }
 

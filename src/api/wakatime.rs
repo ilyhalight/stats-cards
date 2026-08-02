@@ -24,10 +24,8 @@ pub enum StatsRange {
 }
 
 // same for editors, categories, languages
-pub_struct! { Entry {
-    name: String,
+pub_struct! { EntryActivity {
     total_seconds: f64,
-    percent: f32,
     digital: String,
     decimal: String,
     text: String,
@@ -35,43 +33,84 @@ pub_struct! { Entry {
     minutes: i8,
 }}
 
-pub_struct! {  Stats {
-    id: String,
-    user_id: String,
-    range: StatsRange,
-    timeout: i32,
-    writes_only: bool,
+#[derive(Debug, Deserialize, Serialize)]
+pub struct Entry {
+    pub name: String,
+    pub percent: f32,
+    #[serde(flatten)]
+    pub activity: Option<EntryActivity>,
+}
+
+#[derive(Debug, Deserialize, Serialize, PartialEq, PartialOrd)]
+#[serde(untagged)]
+pub enum EntryDetailedSeconds {
+    Str(String),
+    F64(f64),
+}
+
+impl EntryDetailedSeconds {
+    pub fn as_f64(&self) -> f64 {
+        match self {
+            EntryDetailedSeconds::F64(v) => *v,
+            EntryDetailedSeconds::Str(s) => s.parse().unwrap_or(0.0),
+        }
+    }
+}
+
+#[derive(Debug, Deserialize, Serialize)]
+pub struct EntryDetailed {
+    #[serde(flatten)]
+    pub base: Entry,
+    pub ai_coding_seconds: EntryDetailedSeconds,
+    pub manual_coding_seconds: EntryDetailedSeconds,
+}
+
+pub_struct! { ActivityStats {
     holidays: i32,
-    status: String, // pending_update
-    human_readable_daily_average: String,
-    is_up_to_date: bool,
     total_seconds: f64,
     total_seconds_including_other_language: f64,
-    percent_calculated: i8,
     days_minus_holidays: i32,
     daily_average_including_other_language: f64,
     human_readable_daily_average_including_other_language: String,
-    editors: Vec<Entry>,
-    is_up_to_date_pending_future: bool,
-    is_already_updating: bool,
-    categories: Vec<Entry>,
-    languages: Vec<Entry>,
-    is_stuck: bool,
     daily_average: f64,
+    human_readable_daily_average: String,
     human_readable_total_including_other_language: String,
-    days_including_holidays: i32,
-    operating_systems: Vec<Entry>,
     human_readable_total: String,
-    is_cached: bool,
-    username: String,
-    is_including_today: bool,
-    human_readable_range: String,
-    is_coding_activity_visible: bool,
-    is_language_usage_visible: bool,
-    is_editor_usage_visible: bool,
-    is_category_usage_visible: bool,
-    is_os_usage_visible: bool,
+    days_including_holidays: i32,
 }}
+
+#[derive(Debug, Deserialize, Serialize)]
+pub struct Stats {
+    pub id: String,
+    pub user_id: String,
+    pub range: StatsRange,
+    pub timeout: u32,
+    pub username: String,
+    pub writes_only: bool,
+    pub status: String, // pending_update | ok
+    pub percent_calculated: i8,
+    pub human_readable_range: String,
+
+    pub is_up_to_date_pending_future: bool,
+    pub is_already_updating: bool,
+    pub is_stuck: bool,
+    pub is_cached: bool,
+    pub is_including_today: bool,
+    pub is_up_to_date: bool,
+    pub is_coding_activity_visible: bool,
+    pub is_language_usage_visible: bool,
+    pub is_editor_usage_visible: bool,
+    pub is_category_usage_visible: bool,
+    pub is_os_usage_visible: bool,
+
+    pub operating_systems: Vec<EntryDetailed>,
+    pub editors: Vec<EntryDetailed>,
+    pub categories: Vec<Entry>,
+    pub languages: Vec<EntryDetailed>,
+
+    #[serde(flatten)]
+    pub activity: Option<ActivityStats>,
+}
 
 #[derive(Debug, Deserialize, Serialize)]
 #[allow(dead_code)]

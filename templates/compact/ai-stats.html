@@ -1,0 +1,39 @@
+<svg width="400" height="134" viewBox="0 0 400 134" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>{{ name }}'s AI stats</title>
+  <style>
+    .header {
+      font:
+        600 16px "Segoe UI",
+        system-ui,
+        sans-serif;
+    }
+
+    .stat-text {
+      font:
+        600 14px "Segoe UI",
+        system-ui,
+        sans-serif;
+    }
+  </style>
+  <rect width="400" height="134" rx="6" fill="{{ theme_data.background }}" />
+  <text x="20" y="32" fill="{{ theme_data.header }}" class="header">{{ name }}'s AI stats</text>
+
+  <g>
+    <g transform="translate(20 58)">
+      <g>
+        <text class="stat-text" fill="{{ theme_data.text }}">Assisted:</text>
+        <text x="120" class="stat-text" fill="{{ theme_data.header }}">{{ stats.percent }}%</text>
+      </g>
+      <g transform="translate(0 28)">
+        <text class="stat-text" fill="{{ theme_data.text }}">Total Time:</text>
+        <text x="120" class="stat-text" fill="{{ theme_data.header }}">{{ stats.total_time }}</text>
+      </g>
+      <g transform="translate(0 56)">
+        <text class="stat-text" fill="{{ theme_data.text }}">Preferred Editor:</text>
+        <text x="120" class="stat-text" fill="{{ theme_data.header }}">{{ stats.ai_editor }}</text>
+      </g>
+    </g>
+    {% let progress_text = stats.percent ~ "%" %} {% let progress_transform = "translate(337 67)" %}
+    {% include "../components/progress.html" %}
+  </g>
+</svg>

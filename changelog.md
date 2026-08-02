@@ -1,3 +1,7 @@
+# 0.2.6
+
+- Added new endpoint `/v1/ai-stats/wakatime` to get Wakatime AI stats by username
+
 # 0.2.5
 
 - Added new themes support:

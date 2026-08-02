@@ -1,4 +1,5 @@
-const DEFAULT_USERNAME = "ilyhalight";
+const DEFAULT_GH_USERNAME = "ilyhalight";
+const DEFAULT_WAKA_USERNAME = "Toil";
 const DEFAULT_GH_REPO = "stats-cards";
 const DEFAULT_GIST_ID = "6f47e86d2510bce28f8e7f42ae84c716";
 
@@ -283,7 +284,7 @@ const cards = {
         label: "Select username",
         query: "username",
         type: "input",
-        value: DEFAULT_USERNAME,
+        value: DEFAULT_GH_USERNAME,
       },
       selectThemeOption,
       {
@@ -304,7 +305,7 @@ const cards = {
         label: "Select username",
         query: "username",
         type: "input",
-        value: "Toil",
+        value: DEFAULT_WAKA_USERNAME,
       },
       selectThemeOption,
       {
@@ -325,7 +326,7 @@ const cards = {
         label: "Select username",
         query: "username",
         type: "input",
-        value: DEFAULT_USERNAME,
+        value: DEFAULT_GH_USERNAME,
       },
       selectThemeOption,
       {
@@ -342,6 +343,20 @@ const cards = {
         type: "checkbox",
         value: true,
       },
+    ],
+  },
+  "ai-stats-wakatime": {
+    label: "AI Stats (WakaTime)",
+    path: "ai-stats/wakatime",
+    options: [
+      {
+        id: "wakatime-username",
+        label: "Select username",
+        query: "username",
+        type: "input",
+        value: DEFAULT_WAKA_USERNAME,
+      },
+      selectThemeOption,
     ],
   },
   "pin-huggingface": {
@@ -388,7 +403,7 @@ const cards = {
         label: "Select username",
         query: "username",
         type: "input",
-        value: DEFAULT_USERNAME,
+        value: DEFAULT_GH_USERNAME,
       },
       {
         id: "github-repo",
@@ -438,7 +453,7 @@ const categories = Object.entries(cards).map(([key, val]) => ({
 
 let selectedCategory = categories[0];
 const userData = new Map();
-userData.set("username", DEFAULT_USERNAME);
+userData.set("username", DEFAULT_GH_USERNAME);
 
 function createInputOption(selected, option) {
   const labelEl = document.createElement("label");
