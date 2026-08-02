@@ -37,6 +37,12 @@ Current list of available cards:
 
   \* Required `GITHUB_TOKEN` in `.env`
 
+- Wakatime AI Stats
+
+  Endpoint: `/v1/ai-stats/wakatime?username=Toil`
+
+   <img src="https://stats-cards.nirel.cc/v1/ai-stats/wakatime?username=Toil" alt="demo" />
+
 - Huggingface Pin Repository
 
   Endpoint: `/v1/pin/huggingface?username=openai&repo=whisper-large-v3-turbo&show_owner=true&type=model`

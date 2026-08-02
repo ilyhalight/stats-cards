@@ -1,6 +1,7 @@
 # 0.2.6
 
-- Added new endpoint `/v1/ai-stats/wakatime` to get Wakatime AI stats by username
+- Added support get Wakatime AI stats by username with new endpoint `/v1/ai-stats/wakatime`
+- Bump depends
 
 # 0.2.5
 
