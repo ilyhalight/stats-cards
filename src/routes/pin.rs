@@ -130,7 +130,8 @@ pub struct GHPinTemplate<'a> {
     language: Option<GHLangText>,
     stars: Option<&'a String>,
     forks: Option<&'a String>,
-    is_single_text_row: bool,
+    svg_height: i32,
+    meta_y_indent: i32,
     meta_counters_x_indent: usize,
     forks_counter_x_indent: usize,
     theme_data: ThemeData,
@@ -389,6 +390,8 @@ pub fn render_github_pin(
     let theme_data = theme.get_data();
     let is_single_text_row = rows.len() == 1;
 
+    let svg_height = get_svg_height(is_single_text_row);
+    let meta_y_indent = get_meta_y_indent(is_single_text_row);
     let template = GHPinTemplate {
         name: username,
         desc: repo,
@@ -397,7 +400,8 @@ pub fn render_github_pin(
         rows,
         stars,
         forks,
-        is_single_text_row,
+        svg_height,
+        meta_y_indent,
         meta_counters_x_indent: if let Some(lang) = &language {
             lang.width + 35
         } else {
@@ -491,6 +495,14 @@ pub async fn get_gist_pin_impl(
     Ok(result)
 }
 
+fn get_svg_height(is_single_text_row: bool) -> i32 {
+    if is_single_text_row { 100 } else { 120 }
+}
+
+fn get_meta_y_indent(is_single_text_row: bool) -> i32 {
+    if is_single_text_row { 70 } else { 90 }
+}
+
 pub fn render_github_gist(
     gist_id: String,
     show_owner: bool,
@@ -542,6 +554,8 @@ pub fn render_github_gist(
 
     let theme_data = theme.get_data();
     let is_single_text_row = rows.len() == 1;
+    let svg_height = get_svg_height(is_single_text_row);
+    let meta_y_indent = get_meta_y_indent(is_single_text_row);
     let template = GHPinTemplate {
         name: username,
         desc: repo,
@@ -550,7 +564,8 @@ pub fn render_github_gist(
         rows,
         stars,
         forks,
-        is_single_text_row,
+        svg_height,
+        meta_y_indent,
         meta_counters_x_indent: if let Some(lang) = &language {
             lang.width + 35
         } else {
